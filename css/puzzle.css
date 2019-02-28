@@ -1,0 +1,12 @@
+.ficha {
+    background-color: cadetblue;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 1px;
+    margin-right: -2px;
+}
+
+#tablero {
+    max-width: 413px !important;
+}
