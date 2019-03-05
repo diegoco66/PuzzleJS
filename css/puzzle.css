@@ -1,11 +1,19 @@
-.ficha {
-    background-color: cadetblue;
-    width: 100px;
-    height: 100px;
+.contiene-ficha {
     display: inline-block;
     margin-bottom: 1px;
     margin-right: -2px;
 }
+
+.ficha {
+    background-color: cadetblue;
+    width: 100px;
+    height: 100px;
+    cursor: move;
+}
+
+.foto.over {
+    border: 2px dashed #000;
+  }
 
 #tablero {
     max-width: 413px !important;
