@@ -147,9 +147,13 @@ class Puzzle {
         }
 
         if (dragSrcEl != this) {
-            dragSrcEl.innerHTML = this.innerHTML;
-            this.innerHTML = e.dataTransfer.getData('text/html');
-            miTablero.agregarMovible();
+            let com1 = dragSrcEl.querySelectorAll('.comodin');
+            let com2 = this.querySelectorAll('.comodin');
+            if (com1.length > 0 || com2.length > 0) {
+                dragSrcEl.innerHTML = this.innerHTML;
+                this.innerHTML = e.dataTransfer.getData('text/html');
+                miTablero.agregarMovible();
+            }
         }
         return false;
     }
