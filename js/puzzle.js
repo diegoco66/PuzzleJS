@@ -72,17 +72,24 @@ class Puzzle {
      * Eliminar los elementos con clase movible y llamar la función para
      * agregar el movible a los adyacentes.
      */
-    agregarMovible() {
+    async agregarMovible() {
         this.removeDrag();
         let comodin = document.querySelector('.comodin');
-        let movibles = document.querySelectorAll('.movible');
-        movibles.forEach.call(movibles, (movible) => {
-            let comodines = movible.querySelectorAll('.comodin');
-            if (comodines.length === 0) {
-                movible.classList.remove('movible');
-            }
-        });
+        let removerMovibles = await this.eliminarMovibles();
         this.agregarAdyacentes(parseInt(comodin.parentNode.parentNode.dataset.contenedor));
+    }
+
+    eliminarMovibles() {
+        return new Promise((resolve, rej) => {
+            let movibles = document.querySelectorAll('.movible');
+            movibles.forEach.call(movibles, (movible) => {
+                let comodines = movible.querySelectorAll('.comodin');
+                if (comodines.length === 0) {
+                    movible.classList.remove('movible');
+                }
+            });
+            resolve(true);
+        });
     }
 
     /**
